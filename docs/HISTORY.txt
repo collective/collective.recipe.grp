@@ -1,0 +1,11 @@
+1.0 (2011-02-17)
+----------------
+
+- Clean up package
+
+0.1 (2009-04-03)
+----------------
+
+- Added basic functionality
+
+- Created recipe with ZopeSkel
