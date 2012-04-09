@@ -25,7 +25,26 @@
       </header>
       <section>
 
-        <img src="screenshot.png">
+        This recipe can be used to get a hold of the user's UNIX group id:
+
+        <pre>
+
+        [buildout]
+        extends = http://build.pythonpackages.com/buildout/plone/latest
+        parts += chown
+
+        [env]
+        recipe = gocept.recipe.env
+
+        [grp]
+        recipe = collective.recipe.grp
+
+        [chown]
+        recipe = plone.recipe.command
+        command = echo ${env:USER}:${grp:GROUP}
+
+        </pre>
+
 
       </section>
       <footer>
