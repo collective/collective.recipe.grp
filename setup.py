@@ -18,8 +18,8 @@ setup(
         'zc.buildout',
     ],
     long_description=(
-        open('README.rst') +
-        open(os.path.join(['docs', 'HISTORY.txt']))
+        open('README.rst').read() +
+        open(os.path.join('docs', 'HISTORY.txt')).read()
     ),
     classifiers=[
         'Framework :: Buildout',
