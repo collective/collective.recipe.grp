@@ -41,7 +41,8 @@
 
         [chown]
         recipe = plone.recipe.command
-        command = chown -R ${env:USER}:${grp:GROUP} ${buildout:directory}
+        command =
+          chown -R ${env:USER}:${grp:GROUP} ${buildout:directory}
         </pre>
 
 
