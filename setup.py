@@ -1,45 +1,42 @@
-# -*- coding: utf-8 -*-
-"""
-This module contains the tool of collective.recipe.grp
-"""
+from setuptools import find_packages
+from setuptools import setup
 import os
-from setuptools import setup, find_packages
 
-def read(*rnames):
-    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+VERSION = '1.1.0'
 
-version = '1.0'
-long_description = (read('README.rst') + '\n' + read('docs/HISTORY.txt'))
-entry_point = 'collective.recipe.grp:Recipe'
-entry_points = {"zc.buildout": ["default = %s" % entry_point]}
-tests_require=['zope.testing', 'zc.buildout']
 
-setup(name='collective.recipe.grp',
-      version=version,
-      description="A window unto Python's Standard Library grp function",
-      long_description=long_description,
-      classifiers=[
+setup(
+    author='Alex Clark',
+    author_email='aclark@aclark.net',
+    description="A window unto Python's Standard Library grp function",
+    entry_points={
+        'zc.buildout': 'default = collective.recipe.grp:Recipe',
+    },
+    include_package_data=True,
+    install_requires=[
+        'setuptools',
+        'zc.buildout',
+    ],
+    long_description=(
+        open('README.rst') +
+        open(os.path.join(['docs', 'HISTORY.txt']))
+    ),
+    classifiers=[
         'Framework :: Buildout',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'License :: OSI Approved :: Zope Public License',
-        ],
-      keywords='',
-      author='Alex Clark',
-      author_email='aclark@aclark.net',
-      url='http://svn.plone.org/svn/collective/buildout/collective.recipe.grp',
-      license='ZPL',
-      packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['collective', 'collective.recipe'],
-      include_package_data=True,
-      zip_safe=False,
-      install_requires=['setuptools',
-                        'zc.buildout'
-                        # -*- Extra requirements: -*-
-                        ],
-      tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
-      test_suite = 'collective.recipe.grp.tests.test_docs.test_suite',
-      entry_points=entry_points,
-      )
+    ],
+    keywords='buildout group id unix',
+    license='ZPL',
+    name='collective.recipe.grp',
+    namespace_packages=[
+        'collective',
+        'collective.recipe'
+    ],
+    packages=find_packages(),
+    url='http://collective.github.com/collective.recipe.grp/',
+    version=VERSION,
+    zip_safe=False,
+)
