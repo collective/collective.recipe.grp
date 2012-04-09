@@ -28,9 +28,9 @@
         This recipe can be used to get a hold of the user's UNIX group id:
 
         <pre>
-
         [buildout]
-        extends = http://build.pythonpackages.com/buildout/plone/latest
+        extends =
+          http://build.pythonpackages.com/buildout/plone/latest
         parts += chown
 
         [env]
@@ -41,8 +41,7 @@
 
         [chown]
         recipe = plone.recipe.command
-        command = echo ${env:USER}:${grp:GROUP}
-
+        command = chown -R ${env:USER}:${grp:GROUP} ${buildout:directory}
         </pre>
 
 
