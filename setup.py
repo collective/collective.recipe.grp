@@ -9,7 +9,7 @@ def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
 version = '1.0'
-long_description = (read('README.txt') + '\n' + read('docs/HISTORY.txt'))
+long_description = (read('README.rst') + '\n' + read('docs/HISTORY.txt'))
 entry_point = 'collective.recipe.grp:Recipe'
 entry_points = {"zc.buildout": ["default = %s" % entry_point]}
 tests_require=['zope.testing', 'zc.buildout']
